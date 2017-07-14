@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_prevozi_main_layout"
+android:background="@color/black_overlay"
+    android:orientation="vertical"
+
+   >
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycle_view_prevozi">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <ProgressBar
+        android:id="@+id/proggres_bar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:scaleX="0.2"
+        android:layout_centerInParent="true"
+        android:scaleY="0.2"
+        android:visibility="invisible" />
+
+
+
+
+
+
+
+
+</RelativeLayout>
+

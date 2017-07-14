@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    tools:context="com.basic.prevoz.Activitys.ProfilActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbar"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+
+            app:expandedTitleGravity="center_horizontal|bottom"
+            android:soundEffectsEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_collapseMode="pin"
+                >
+
+
+                <ImageView
+                    android:id="@+id/image_user_cover"
+                    android:layout_width="match_parent"
+                    android:background="@color/cardview_dark_background"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+
+                    android:fitsSystemWindows="true" />
+                <android.support.v7.widget.CardView
+                    android:layout_width="102dp"
+                    app:cardElevation="10dp"
+                      android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="75dp"
+                    app:cardBackgroundColor="#FFFFFFFF"
+                    app:cardCornerRadius="51dp"
+                    android:layout_height="102dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image_user"
+                        android:src="@color/cardview_dark_background"
+                        android:layout_width="100dp"
+                        android:layout_gravity="center"
+                        android:layout_height="100dp" />
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_profil"
+                android:layout_width="match_parent"
+                style="@style/Widget.Design.CollapsingToolbar"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways|snap"/>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floating_button"
+        app:fabSize="normal"
+        android:tint="#FFFFFF"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layout_margin="@dimen/fab_margin"
+        />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="64dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_korisnik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_image_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:clickable="true"
+                    android:src="@drawable/ic_call_black_32dp">
+
+
+                </ImageButton>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_broj_telefona"
+                        android:layout_width="wrap_content"
+                      android:textColor="#FF000000"
+                        android:alpha=".87"
+                        android:text="Phone number"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:alpha="0.64"
+                        android:text="@string/phone_number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginRight="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button_image_sms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:background="#00000000"
+                    android:clickable="true"
+                    android:src="@drawable/ic_sms_black_32dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="-9dp"
+                    android:textAllCaps="true"
+                    android:layout_height="wrap_content"
+                   android:textSize="7sp"
+                    android:textColor="#FF000000"
+                    android:alpha=".87"
+                    android:text="@string/label_send_sms" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_image_send_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00000000"
+                    android:clickable="true"
+                    android:src="@drawable/ic_message_black_32dp">
+
+
+                </ImageButton>
+
+
+                <TextView
+                    android:id="@+id/tv_privatna_poruka"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:textColor="#FF000000"
+                    android:clickable="true"
+                    android:alpha=".87"
+                    android:text="@string/send_private_message" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_image_send_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00000000"
+                    android:clickable="true"
+                    android:src="@drawable/ic_email_black_32dp">
+
+
+                </ImageButton>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:textColor="#FF000000"
+                    android:alpha=".87"
+                    android:clickable="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:alpha="0.64"
+                    android:text="@string/email" />
+
+            </LinearLayout>
+                </LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appbar"
+        style="@style/AppThemeNoActionBar"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar_prijatelji"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="wrap_content"/>
+
+            <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:hint="@string/search_prijatelji_hint"
+                android:layout_height="wrap_content"
+                 />
+</FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_below="@id/appbar"
+        android:id="@+id/recycle_view_messages"
+
+        ></android.support.v7.widget.RecyclerView>
+
+
+    <ProgressBar
+        android:id="@+id/proggres_bar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleX="0.2"
+        android:scaleY="0.2"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textviev_error_message"
+        android:visibility="invisible"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        android:text="@string/error_message"
+        android:fontFamily="monospace"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textviev_search_not_found_message"
+        android:visibility="invisible"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:text="@string/message_search_not_found"
+        android:fontFamily="monospace"/>
+
+
+
+</RelativeLayout>

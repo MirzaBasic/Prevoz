@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<group>
+
+  <item
+        android:title="@string/title_action_search"
+        android:id="@+id/action_pretraga"
+        android:icon="@drawable/ic_search_24dp"
+
+     app:showAsAction="always">
+
+  </item>
+
+    <item app:showAsAction="never"
+        android:title="@string/action_settings"
+        android:id="@+id/action_settings">
+        </item>
+</group>
+</menu>

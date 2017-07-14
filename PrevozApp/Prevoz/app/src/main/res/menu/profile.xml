@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_izbrisi_prijatelja"
+        android:icon="@drawable/ic_person_outline_black_100dp"
+        android:orderInCategory="1"
+        android:title="@string/label_unfriend_person"
+        app:showAsAction="collapseActionView" />
+<item android:id="@+id/action_blokiraj_osobu"
+    android:icon="@drawable/ic_block_black_24dp"
+    android:orderInCategory="2"
+    android:title="@string/label_block_person"
+    app:showAsAction="collapseActionView" />
+
+
+    <item android:id="@+id/action_prijavi"
+        android:icon="@drawable/ic_report_black_24dp"
+        android:orderInCategory="3"
+        android:title="@string/label_report_person"
+        app:showAsAction="collapseActionView" />
+</menu>

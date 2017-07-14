@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16px"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:padding="16px"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50dp"
+        android:gravity="right"
+
+
+
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:background="@drawable/chat_right_messages_shape"
+
+            android:padding="32px"
+            android:layout_width="wrap_content"
+            android:id="@+id/tv_poruka"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+android:animateLayoutChanges="true"
+            android:id="@+id/layout_message_detals"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="datum"
+                android:layout_marginRight="5dp"
+                android:textSize="9dp"
+
+                android:id="@+id/tv_datum"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                  android:alpha=".12"
+                    android:background="@drawable/ic_check_black_12dp"
+
+                    android:id="@+id/image_check_send"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:alpha=".12"
+                    android:background="@drawable/ic_check_black_12dp"
+                    android:layout_marginLeft="-9dp"
+                    android:id="@+id/image_check_read"
+                    android:layout_height="wrap_content" />/>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/message_error_not_sent"
+            android:textSize="9dp"
+            android:id="@+id/tv_message_error"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

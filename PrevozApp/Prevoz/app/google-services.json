@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "203931841251",
+    "firebase_url": "https://eprevoz.firebaseio.com",
+    "project_id": "eprevoz",
+    "storage_bucket": "eprevoz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203931841251:android:a7ba79b2d5edf6cb",
+        "android_client_info": {
+          "package_name": "com.basic.prevoz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203931841251-s4lchlogg7jmq6tqdd7t9b5pfsi2sdm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.basic.prevoz",
+            "certificate_hash": "1b3d994c74e1de4432766a331005adf649a16f55"
+          }
+        },
+        {
+          "client_id": "203931841251-k00b36v5hscoe3osh61hne47vkigtsk3.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "203931841251-nitrs6c6qbruunt1vropjso5t2hdutdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvX-fKzCxB45Gzq6w3D1v6jiLIXHt5ud0"
+        },
+        {
+          "current_key": "AIzaSyDlqLvMTdWAajMwxLvHdfj1SNCuYDIcM_g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203931841251-k00b36v5hscoe3osh61hne47vkigtsk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

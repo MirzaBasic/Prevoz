@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ndroid="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingTop="32dp"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+
+            <RelativeLayout
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:id="@+id/image_stanice"
+            android:src="@drawable/ic_radio_button_unchecked_black_24dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_stanice_icon"
+            android:layout_width="wrap_content"
+            android:text="A"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/image_stanice"
+            android:layout_alignTop="@+id/image_stanice"
+            android:layout_alignRight="@+id/image_stanice"
+            android:layout_alignBottom="@+id/image_stanice"
+            android:layout_margin="1dp"
+            android:gravity="center"
+
+             />
+            </RelativeLayout>
+
+
+
+
+
+
+            <Button
+                android:hint="@string/hint_button_odaberi_tanicu"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+android:background="@drawable/button_selector"
+                android:id="@+id/button_stanica"
+                android:layout_height="36dp"
+
+
+                />
+
+
+
+
+            <ImageButton
+                android:layout_marginLeft="10dp"
+                android:id="@+id/button_delete_stanicu"
+                android:layout_gravity="center"
+                android:layout_width="24dp"
+                android:background="@drawable/button_selector"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_close_black_16dp"
+                 />
+        </LinearLayout>
+</LinearLayout>

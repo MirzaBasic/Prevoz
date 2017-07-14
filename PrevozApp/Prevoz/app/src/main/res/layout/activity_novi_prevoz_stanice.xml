@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.basic.prevoz.Activitys.DodajNoviPrevoz.NoviPrevozStaniceActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@id/appbar"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_stanice"
+            android:layout_width="match_parent"
+            android:elevation="4dp"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+    <ListView
+
+        android:id="@+id/listview_stanice"
+        android:layout_width="match_parent"
+       android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:divider="#00000000"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_gravity="bottom|right"
+
+        android:id="@+id/button_next"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:text="NEXT"
+        android:src="@drawable/ic_next_24dp"
+        app:fabSize="normal"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        />
+</android.support.design.widget.CoordinatorLayout>
+

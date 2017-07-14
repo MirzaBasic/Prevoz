@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16px"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+
+         android:layout_alignParentLeft="true"
+        android:padding="16px"
+        android:layout_marginRight="50dp"
+        android:gravity="right"
+
+
+        android:layout_height="wrap_content"
+       >
+
+        <TextView
+            android:layout_width="wrap_content"
+android:text="2"
+            android:layout_gravity="left"
+            android:padding="32px"
+            android:id="@+id/tv_poruka"
+            android:background="@drawable/chat_left_message_shape"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            android:layout_gravity="left"
+            android:id="@+id/layout_message_detals"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+             android:textSize="9dp"
+            android:id="@+id/tv_datum"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

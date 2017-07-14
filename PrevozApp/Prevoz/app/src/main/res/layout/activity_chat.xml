@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.basic.prevoz.Activitys.ChatActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_chat"
+            app:layout_scrollFlags="enterAlways"
+           android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_view_chat"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:stackFromEnd="true"
+
+        app:reverseLayout="true"
+        android:layout_height="match_parent"
+    ></android.support.v7.widget.RecyclerView>
+
+
+
+    <android.support.v7.widget.CardView
+android:elevation="4dp"
+        android:layout_gravity="bottom"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+    <EditText
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+       android:id="@+id/et_message"
+
+        android:padding="32px"
+       android:layout_marginRight="6dp"
+        android:singleLine="true"
+        android:background="@drawable/chat_txt"
+        android:hint="@string/hint_send_chat_message"
+        android:layout_height="wrap_content"/>
+
+  <ImageView
+      android:layout_weight="1"
+      android:layout_width="78dp"
+
+      android:layout_margin="6dp"
+      android:clickable="true"
+android:id="@+id/button_send_chat_message"
+      android:layout_height="match_parent"
+
+      android:src="@drawable/ic_menu_send"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</android.support.design.widget.CoordinatorLayout>
