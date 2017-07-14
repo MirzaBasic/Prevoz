@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrevoz.WEB", "ePrevoz.WEB\ePrevoz.WEB.csproj", "{57892042-CB57-41A9-B722-9A1483849F7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrevoz.DATA", "ePrevoz.DATA\ePrevoz.DATA.csproj", "{713923DD-9CD4-410E-BE6C-45BA1B72B102}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57892042-CB57-41A9-B722-9A1483849F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57892042-CB57-41A9-B722-9A1483849F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57892042-CB57-41A9-B722-9A1483849F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57892042-CB57-41A9-B722-9A1483849F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{713923DD-9CD4-410E-BE6C-45BA1B72B102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713923DD-9CD4-410E-BE6C-45BA1B72B102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713923DD-9CD4-410E-BE6C-45BA1B72B102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713923DD-9CD4-410E-BE6C-45BA1B72B102}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
