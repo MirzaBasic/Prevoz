@@ -57,16 +57,18 @@ public class NetworkUtils {
     private static String STATUS = "Status";
     private static String ACTION_IZBRISI_TOKEN = "IzbrisiToken";
     private static String START = "startGrad";
+    private static String DATUM = "datum";
     private static String KRAJ = "krajGrad";
     private static String TIP_PREVOZA = "tipPrevoza";
 
 
-    public static URL buildSearchURL(String start, String kraj, int tipPrevoza, int page) {
+    public static URL buildSearchURL(String start, String kraj, String datum, int tipPrevoza, int page) {
         Uri uri = Uri.parse(BASIC_URL).buildUpon().
                 appendPath(CONTROLER_PREVOZI).
                 appendPath(ACTION_PRETRAGA).
                 appendQueryParameter(START, start).
                 appendQueryParameter(KRAJ, kraj).
+                appendQueryParameter(DATUM,datum).
                 appendQueryParameter(TIP_PREVOZA,String.valueOf(tipPrevoza)).
                 appendQueryParameter(PAGE,String.valueOf(page)).
                 build();

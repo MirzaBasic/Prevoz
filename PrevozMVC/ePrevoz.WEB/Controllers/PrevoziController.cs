@@ -6,6 +6,7 @@ using ePrevoz.WEB.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -26,12 +27,18 @@ namespace ePrevoz.WEB.Controllers
         private static int itemsPerPage = 15;
    
 
-        public JsonNetResult Pretraga(String startGrad, String krajGrad, int tipPrevoza, int page)
+        public JsonNetResult Pretraga(String startGrad, String krajGrad, int tipPrevoza,DateTime? datum, int page)
         {
 
           
             PrevozVM sviPrevozi = new PrevozVM();
-            sviPrevozi.Prevozi = mc.Prevozi.Where(x => x.Aktivno && x.DatumKretanja > DateTime.Now && x.TipPrevoza == tipPrevoza).Select(x => new PrevozVM.Info
+            sviPrevozi.Prevozi = mc.Prevozi.Where(
+                                    x => x.Aktivno 
+                                    && x.DatumKretanja > DateTime.Now 
+                                    && x.TipPrevoza == tipPrevoza
+                                    &&((datum.HasValue&& DbFunctions.TruncateTime(x.DatumKretanja) == datum.Value)
+                                    ||(!datum.HasValue)))
+            .Select(x => new PrevozVM.Info
             {
                 Id = x.Id,
                 DatumKreiranja = x.DatumKreiranja,

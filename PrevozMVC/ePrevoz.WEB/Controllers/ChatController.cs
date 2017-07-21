@@ -36,11 +36,19 @@ namespace ePrevoz.WEB.Controllers
 
                     }).ToList().OrderByDescending(x => x.DatumKreiranja).ToList(); ;
 
-            
+
+            foreach (PorukeVM item in svePoruke)
+            {
+                if (item.KorisnikPoslaoId != Korisnik1Id)
+                {
+                    Poruka p = mc.Poruke.Find(item.Id);
+                    p.Status = 1;
+                }
+            }
+            mc.SaveChanges();
 
             var model = svePoruke.Skip(page * itemsPerPage).Take(itemsPerPage).ToList();
 
-          
 
 
 
@@ -69,7 +77,7 @@ namespace ePrevoz.WEB.Controllers
                         Status = x.Status,
                         Text = x.Text
 
-                    }).ToList().OrderByDescending(x => x.DatumKreiranja).ToList(); ;
+                    }).OrderByDescending(x => x.DatumKreiranja).ToList(); ;
 
 
 

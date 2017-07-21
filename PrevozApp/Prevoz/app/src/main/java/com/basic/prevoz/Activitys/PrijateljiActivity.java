@@ -170,7 +170,7 @@ public class PrijateljiActivity extends AppCompatActivity implements LoaderManag
     public void doShowErrorMessage() {
 
         mRecyclerView.setVisibility(View.INVISIBLE);
-        Snackbar.make(getCurrentFocus(), getString(R.string.error_message), Snackbar.LENGTH_INDEFINITE).
+        Snackbar.make(findViewById(R.id.content), getString(R.string.error_message), Snackbar.LENGTH_INDEFINITE).
                 setAction(getString(R.string.refresh), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -182,7 +182,7 @@ public class PrijateljiActivity extends AppCompatActivity implements LoaderManag
 
     }
     public void doShowSearchNotFound() {
-        Snackbar.make(getCurrentFocus(), getString(R.string.message_friend_search_not_found), Snackbar.LENGTH_SHORT).
+        Snackbar.make(findViewById(R.id.content), getString(R.string.message_friend_search_not_found), Snackbar.LENGTH_SHORT).
                 show();
 
     }

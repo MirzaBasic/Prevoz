@@ -20,21 +20,38 @@ namespace ePrevoz.WEB.Controllers
         MojContext mc = new MojContext();
         // GET: Korisnici
         public JsonNetResult Dodaj(KorisnikVM korisnik)
-        {   
+        {
 
 
             Korisnik k = mc.Korisnici.Where(x => x.UserId == korisnik.UserId).FirstOrDefault();
             FirebaseToken token = new FirebaseToken();
-            if (k==null)
+            if (k == null)
             {
                 k = new Korisnik();
                 mc.Korisnici.Add(k);
-            
+
             }
-          
+
             k.Email = korisnik.Email;
-            k.photoUrl = korisnik.photoUrl;
-            k.coverPhotoUrl = korisnik.coverPhotoUrl;
+
+            if (korisnik.photoUrl != null) {
+                k.photoUrl = korisnik.photoUrl;
+            }
+            else { 
+              korisnik.photoUrl= "http://"+HttpContext.Request.Url.Host+ "/Images/profile_man_image.png";
+                k.photoUrl = korisnik.photoUrl;
+                }
+
+            if (korisnik.coverPhotoUrl != null)
+            {
+                k.coverPhotoUrl = korisnik.coverPhotoUrl;
+            }
+            else
+            {
+                korisnik.coverPhotoUrl = "http://" + HttpContext.Request.Url.Host + "/Images/cover_photo.jpg";
+                k.coverPhotoUrl = korisnik.coverPhotoUrl;
+
+            }
             k.UserId = korisnik.UserId;
             k.ImePrezime = korisnik.ImePrezime;
 
@@ -75,7 +92,9 @@ namespace ePrevoz.WEB.Controllers
                 return null;
             }
 
+
             korisnik.Id = k.Id;
+
             korisnik.FirebaseTokenId = token.Id;
          
             var setting = new Newtonsoft.Json.JsonSerializerSettings();

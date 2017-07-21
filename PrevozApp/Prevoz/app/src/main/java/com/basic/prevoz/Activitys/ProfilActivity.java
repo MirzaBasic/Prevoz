@@ -62,7 +62,7 @@ private     AlertDialog.Builder mAlertDialogBuilder;
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_thick);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_thick_white);
          mAlertDialogBuilder = new AlertDialog.Builder(this);
 
         mFloatingActionButton= (FloatingActionButton) findViewById(R.id.floating_button);

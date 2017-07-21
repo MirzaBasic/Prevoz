@@ -37,12 +37,12 @@
         <activity
             android:name=".Activitys.DodajNoviPrevoz.NoviPrevozStaniceActivity"
             android:label="@string/title_stanice"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:theme="@style/AppThemeNoActionBar" >
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.basic.prevoz.Activitys.DodajNoviPrevoz.NoviPrevozTipPrevozaActivity" />
-
+</activity>
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
@@ -77,7 +77,8 @@
         </activity>
         <activity
             android:name=".Activitys.PrevozDetaljiActivity"
-            android:theme="@style/AppThemeNoActionBar">
+            android:theme="@style/AppThemeNoActionBar"
+            android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.basic.prevoz.NavigationDrawerActivity" />

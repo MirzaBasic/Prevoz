@@ -6,11 +6,15 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -73,7 +77,6 @@ public class PrevozDetaljiActivity extends AppCompatActivity implements OnMapRea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_prevoz_detalji);
 
 
@@ -85,8 +88,17 @@ public class PrevozDetaljiActivity extends AppCompatActivity implements OnMapRea
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_thick);
-
-
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        CoordinatorLayout.LayoutParams params =
+                (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+        AppBarLayout.Behavior behavior = new AppBarLayout.Behavior();
+        behavior.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
+            @Override
+            public boolean canDrag(AppBarLayout appBarLayout) {
+                return false;
+            }
+        });
+        params.setBehavior(behavior);
 
         Bundle arg=getIntent().getExtras();
         if(arg!=null){
@@ -117,6 +129,23 @@ public class PrevozDetaljiActivity extends AppCompatActivity implements OnMapRea
 
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.detalji,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==R.id.action_navigacija){
+
+
+            doCallGoogleNavigation();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void doSetDetaljiPrevoza() {
@@ -311,9 +340,14 @@ public class PrevozDetaljiActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        googleMap.getUiSettings().setMapToolbarEnabled(false);
-        googleMap.getUiSettings().setAllGesturesEnabled(false);
+
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+       googleMap.getUiSettings().setMapToolbarEnabled(true);
+
+        googleMap.getUiSettings().setCompassEnabled(false);
+        googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setIndoorLevelPickerEnabled(true);
         int widthRouteLine=5;
 
         List<MarkerOptions> margers=new ArrayList<>();

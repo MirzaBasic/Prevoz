@@ -45,6 +45,8 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
     private ProgressBar mProggresBar;
     private String mSearchStartLocation="";
     private String mSearchEndLocation="";
+    private String mSearchDate="";
+    private static int ITEMS_ON_PAGE=15;
     private static int SEARCH_NUDIM_PREVOZ=1;
     private static String ON_SCROLL_KEY="scroll_key";
     private static String PREVOZ_KEY="prevoz_key";
@@ -85,7 +87,6 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
 
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.addItemDecoration(new StartOffsetItemDecoration(10));
         mRecyclerView.addItemDecoration(new EndOffsetItemDecoration(10));
 
 
@@ -119,10 +120,13 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
         scrollListener=new EndlessRecyclerViewScrollListener(layoutManager,onScroll){
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-
-                mPage = page;
-                doSearchData();
-
+                if(mAdapter.getItemCount()>=ITEMS_ON_PAGE) {
+                    mPage = page;
+                    doSearchData();
+                }
+                else {
+                    doShowSearchNotFound();
+                }
             }
         };
 
@@ -176,10 +180,11 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
     }
 
 
-    public void doSetSearchQuery(String searchStartLocation,String searchEndLocation){
+    public void doSetSearchQuery(String searchStartLocation, String searchEndLocation, String searchDatum){
         mPage=0;
         mSearchStartLocation=searchStartLocation;
         mSearchEndLocation=searchEndLocation;
+        mSearchDate=searchDatum;
         scrollListener.resetState();
         doSearchData();
 
@@ -204,9 +209,9 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
     }
     public void doShowSearchNotFound() {
 
-        /*Snackbar.make(view, getString(R.string.message_search_not_found), Snackbar.LENGTH_SHORT).
+        Snackbar.make(view, getString(R.string.message_search_not_found), Snackbar.LENGTH_SHORT).
                 show();
-                */
+
     }
     public void doShowData() {
 
@@ -255,7 +260,7 @@ public class PrevoziNudimFragment extends Fragment implements PrevozAdapter.Prev
 
 
                 try {
-                    jsonResult = NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildSearchURL(mSearchStartLocation, mSearchEndLocation,SEARCH_NUDIM_PREVOZ, mPage));
+                    jsonResult = NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildSearchURL(mSearchStartLocation, mSearchEndLocation, mSearchDate, SEARCH_NUDIM_PREVOZ, mPage));
 
                 } catch (IOException e) {
                     e.printStackTrace();

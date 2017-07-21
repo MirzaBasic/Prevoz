@@ -43,6 +43,8 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
     private RecyclerView mRecyclerView;
     private String mSearchStartLocation="";
     private String mSearchEndLocation="";
+    private String mSearchDate="";
+    private static int ITEMS_ON_PAGE=15;
     private static int SEARCH_TRAZIM_PREVOZ=0;
     private int mPage;
     private static String ON_SCROLL_KEY="scroll_key";
@@ -89,7 +91,6 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
 
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.addItemDecoration(new StartOffsetItemDecoration(10));
         mRecyclerView.addItemDecoration(new EndOffsetItemDecoration(10));
 
 
@@ -116,7 +117,7 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
         Bundle arg=getArguments();
         if(arg!=null){
             if(arg.containsKey(ON_SCROLL_KEY)){
-               onScroll= (MyRunnablePar) arg.getParcelable(ON_SCROLL_KEY);
+                onScroll= (MyRunnablePar) arg.getParcelable(ON_SCROLL_KEY);
             }
 
         }
@@ -124,10 +125,13 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
         scrollListener=new EndlessRecyclerViewScrollListener(layoutManager,onScroll){
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-
-                mPage = page;
-                doSearchData();
-
+                if(mAdapter.getItemCount()>=ITEMS_ON_PAGE) {
+                    mPage = page;
+                    doSearchData();
+                }
+                else {
+                    doShowSearchNotFound();
+                }
             }
         };
 
@@ -154,6 +158,7 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
 
             @Override
             public void onRefresh() {
+
                 mPage=0;
                 scrollListener.resetState();
                 doSearchData();
@@ -183,10 +188,11 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
     }
 
 
-    public void doSetSearchQuery(String searchStartLocation,String searchEndLocation){
+    public void doSetSearchQuery(String searchStartLocation, String searchEndLocation, String searchDate){
         mPage=0;
         mSearchStartLocation=searchStartLocation;
         mSearchEndLocation=searchEndLocation;
+        mSearchDate=searchDate;
         scrollListener.resetState();
         doSearchData();
 
@@ -211,9 +217,9 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
     }
     public void doShowSearchNotFound() {
 
-        /*Snackbar.make(view, getString(R.string.message_search_not_found), Snackbar.LENGTH_SHORT).
+        Snackbar.make(view, getString(R.string.message_search_not_found), Snackbar.LENGTH_SHORT).
                 show();
-                */
+
     }
     public void doShowData() {
 
@@ -262,7 +268,7 @@ public class PrevoziTrazimFragment extends Fragment implements PrevozAdapter.Pre
 
 
                 try {
-                    jsonResult = NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildSearchURL(mSearchStartLocation, mSearchEndLocation,SEARCH_TRAZIM_PREVOZ, mPage));
+                    jsonResult = NetworkUtils.getResponseFromHttpUrl(NetworkUtils.buildSearchURL(mSearchStartLocation, mSearchEndLocation,mSearchDate,SEARCH_TRAZIM_PREVOZ, mPage));
 
                 } catch (IOException e) {
                     e.printStackTrace();

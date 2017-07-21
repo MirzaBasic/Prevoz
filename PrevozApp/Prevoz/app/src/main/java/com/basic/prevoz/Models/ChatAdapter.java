@@ -27,9 +27,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int NOT_SENT=2;
     public static final int SENT=0;
     public static final int SEEN=1;
-    private static View LAST_CLICKED_MESSAGE_VIEW;
-    private static final float ALPHA_VALUE_ACTIVE_ICON= (float) 0.64;
-    private static final float ALPHA_VALUE_INACTIVE_ICON= (float) 0.32;
+    private static final float ALPHA_VALUE_ACTIVE_ICON= (float) 0.87;
     ChatAdapterOnClickHandler onClickHandler;
 
     private Context context;
@@ -179,21 +177,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void doOnClickMessage(View v) {
-        View detaljiPorukeLayout = v.findViewById(R.id.layout_message_detals);
-        if (detaljiPorukeLayout.getVisibility() == View.GONE)
-            MyAnimations.showChatDetails(detaljiPorukeLayout);
-        else
-            MyAnimations.hideChatDetails(detaljiPorukeLayout);
-
-
-        if(LAST_CLICKED_MESSAGE_VIEW!=v){
-        if(LAST_CLICKED_MESSAGE_VIEW!=null) {
-          MyAnimations.hideChatDetails(LAST_CLICKED_MESSAGE_VIEW.findViewById(R.id.layout_message_detals));
-
-        }}
-        LAST_CLICKED_MESSAGE_VIEW = v;
-        }
-
+    }
 
 
 

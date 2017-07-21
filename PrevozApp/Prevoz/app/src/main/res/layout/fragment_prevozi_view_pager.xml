@@ -67,7 +67,7 @@
         android:layout_gravity="bottom|right|end"
         app:fabSize="normal"
         android:layout_margin="@dimen/fab_margin"
-
+        app:elevation="10dp"
         app:srcCompat="@drawable/ic_add_white_24dp"
         android:background="@color/colorPrimary"
         android:id="@+id/floating_button_add_new_prevoz"

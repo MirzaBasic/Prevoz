@@ -66,6 +66,12 @@ public class ChatActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
@@ -179,10 +185,10 @@ public class ChatActivity extends AppCompatActivity implements LoaderManager.Loa
         message.Text=mChatMessage.getText().toString();
 
         if(korisnikId==Sesija.GetSignInUser().Id){
-            message.Status=1;
+            message.Status=ChatAdapter.SEEN;
         }
         else {
-            message.Status = 0;
+            message.Status = ChatAdapter.SENT;
         }
         message.KorisnikPoslaoId= Sesija.GetSignInUser().Id;
         message.KorisnikPrimioId=mKorisnik.Id;
@@ -210,16 +216,15 @@ public class ChatActivity extends AppCompatActivity implements LoaderManager.Loa
                 super.onPostExecute(success);
                 if(success){
                     message.Status=ChatAdapter.SENT;
-                    mAdapter.addLastPoruka(message);
-                    mRecyclerView.scrollToPosition(0);
+
 
                 }
                 else{
                     message.Status=ChatAdapter.NOT_SENT;
-                    mAdapter.addLastPoruka(message);
-                    mRecyclerView.scrollToPosition(0);
 
                 }
+                mAdapter.addLastPoruka(message);
+                mRecyclerView.scrollToPosition(0);
             }
         }.execute(NetworkUtils.buildSendMessageURL());
 
@@ -301,12 +306,7 @@ public class ChatActivity extends AppCompatActivity implements LoaderManager.Loa
     private void doShowErrorMessage() {
 
     }
-    private void doShowErrorMessageNotSent() {
 
-    }
-
-    private void doShowrMessageSuccessfulySent() {
-    }
 
     private void doShowData() {
     }

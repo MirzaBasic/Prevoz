@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fafafa</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#FF000000</color>
+    <color name="colorPrimaryDarkV23">#03000000</color>
     <color name="colorAccent">#000000</color>
+    <color name="colorCollapsedToolbarDark">#757575</color>
+    <color name="colorCollapsedToolbarLight">#fafafa</color>
     <color name="black_overlay">#10000000</color>
     <color name="accent_material_light_1">#0b5aca</color>
 </resources>

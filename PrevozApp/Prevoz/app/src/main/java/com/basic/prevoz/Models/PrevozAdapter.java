@@ -129,8 +129,12 @@ private static int PIXEL_SIZE=135;
 
         prevozViewHolder.mUsernameTextView.setText(mPrevoz.Korisnik.ImePrezime);
 
-
-        prevozViewHolder.mCijena.setText(String.valueOf(mPrevoz.Cijena));
+if(mPrevoz.Cijena==0){
+    prevozViewHolder.mCijena.setText(MyApp.getContext().getString(R.string.free));
+}
+else {
+    prevozViewHolder.mCijena.setText(String.valueOf(mPrevoz.Cijena));
+}
         prevozViewHolder.mBrojOsoba.setText(String.valueOf(mPrevoz.BrojMjesta));
         prevozViewHolder.mDatumKretanja.setText(DateConverter.to_dd_mm_yyyy_hh_mm(mPrevoz.DatumKretanja));
 

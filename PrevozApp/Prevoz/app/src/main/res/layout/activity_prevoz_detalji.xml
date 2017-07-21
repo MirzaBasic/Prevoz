@@ -7,19 +7,23 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:id="@+id/appbar"
+
+
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             app:titleEnabled="false"
+            app:title=""
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|enterAlways"
+            app:contentScrim="@color/colorCollapsedToolbarLight"
+            >
 
 
             <RelativeLayout
@@ -44,10 +48,9 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_detalji"
                 android:layout_width="match_parent"
+                android:elevation="0dp"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-                android:fitsSystemWindows="true"
                ></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -91,7 +94,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:alpha=".38"
                         android:src="@drawable/ic_radio_button_checked_24dp" />
 
                     <TextView
@@ -99,9 +102,7 @@
                         android:id="@+id/tv_start_grad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Sarajevo"
                         android:layout_marginLeft="6dp"
-                        android:textSize="22sp"
                         android:fontFamily="sans-serif"
                         ></TextView>
                 </LinearLayout>
@@ -116,15 +117,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:alpha=".38"
                         android:src="@drawable/ic_more_vert_24dp" />
 
                     <TextView
                         android:id="@+id/tv_stanice"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
-
                         android:fontFamily="sans-serif"
                         ></TextView>
                 </LinearLayout>
@@ -139,13 +139,13 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:alpha=".38"
                         android:src="@drawable/ic_place_24dp" />
 
                     <TextView
                         android:id="@+id/tv_kraj_grad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="22sp"
                         android:layout_marginLeft="6dp"
                         android:fontFamily="sans-serif"></TextView>
                 </LinearLayout>
@@ -174,6 +174,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:alpha=".38"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_today_black_24dp" />
 
@@ -181,7 +182,6 @@
 
 
                         android:id="@+id/tv_datum"
-                        android:textSize="18sp"
                         android:layout_width="wrap_content"
 
                         android:layout_height="wrap_content"
@@ -202,16 +202,13 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:alpha=".38"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_access_time_black_24dp" />
 
                     <TextView
-
-
                         android:id="@+id/tv_vrijeme"
-                        android:textSize="18sp"
                         android:layout_width="wrap_content"
-
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:fontFamily="sans-serif"
@@ -242,11 +239,12 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:alpha=".38"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_person_black_24dp" />
 
                     <TextView
-                        android:textSize="18sp"
+
                         android:id="@+id/tv_brojOsoba"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -18,6 +18,7 @@ public class KorisniciVM implements Serializable{
     public String Email ;
     public String ImePrezime;
     public String photoUrl;
+    public String Spol;
     public String FirebaseToken;
     public int FirebaseTokenId;
     public PrijateljiVM Prijatelj;

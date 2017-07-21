@@ -7,10 +7,6 @@
         android:id="@+id/action_navigacija"
         android:icon="@drawable/ic_navigation_black_24dp">
     </item>
-    <item app:showAsAction="collapseActionView"
-        android:title="@string/action_settings"
-        android:id="@+id/action_settings">
 
-    </item>
 </group>
 </menu>

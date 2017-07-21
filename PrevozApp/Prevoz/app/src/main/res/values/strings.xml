@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Prevoz</string>
-    <string name="error_message">Provjerite konekciju i pokušajte ponovo!</string>
+    <string name="error_message">Problem sa konekcijom!</string>
     <string name="message_install_google_maps">Molimo, instalirajte Google Maps.</string>
     <string name="action_navigacija">Navigacija</string>
     <string name="title_activity_prevozi">Prevozi</string>
-    <string name="hint_start_location">Odaberi polazište </string>
-    <string name="hint_end_location">Odaberi odredište </string>
+    <string name="hint_start_location">Odaberite polazište</string>
+    <string name="hint_end_location">Odaberite odredište </string>
+    <string name="hint_datee">Odaberite datum</string>
     <string name="title_action_search">Pretraga </string>
+    <string name="free">Besplatno</string>
     <string name="action_settings">Settings</string>
     <string name="title_viewpager_trazim">Tražim</string>
     <string name="title_viewpager_nudim">Nudim</string>

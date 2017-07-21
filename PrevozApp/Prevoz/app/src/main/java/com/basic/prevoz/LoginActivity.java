@@ -61,11 +61,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    private static String EMAIL="email";
+    final  public   String EMAIL="email";
     private static String SOURCE="source";
-    private static String ID="id";
-    private static String COVER="cover";
-    private static String NAME="name";
+  final public String ID="id";
+  final public String COVER="cover";
+  final public String GENDER="gender";
+  final public String BIRTHDAY="birthday";
+  final public String NAME="name";
     private static String PREVOZI_TOPIC="prevozi";
 
     private static String ACCESS_TOKEN="access_token";
@@ -92,7 +94,8 @@ mProgressDialog=new ProgressDialog(this);
         callbackManager = CallbackManager.Factory.create();
         final LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
      /*TODO Napravit da pokupi email*/
-        loginButton.setReadPermissions(EMAIL);
+
+        loginButton.setReadPermissions("user_likes");
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -118,7 +121,9 @@ mProgressDialog=new ProgressDialog(this);
 
                     }
                 });
+
                 graphRequest.executeAsync();
+
             }
 
             @Override
@@ -258,6 +263,9 @@ public void doLoginSuccess(){
             else{
                 korisnik.Email="";
 
+            }
+            if(acct.has(GENDER)){
+                korisnik.Spol=acct.getString(GENDER);
             }
 
                 if (acct.has(ACCESS_TOKEN)) {

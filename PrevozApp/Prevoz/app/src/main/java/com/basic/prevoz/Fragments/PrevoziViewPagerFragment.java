@@ -1,5 +1,6 @@
 package com.basic.prevoz.Fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -18,11 +19,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.basic.prevoz.Activitys.DodajNoviPrevoz.NoviPrevozTipPrevozaActivity;
 import com.basic.prevoz.Helper.MyAnimations;
+import com.basic.prevoz.Helper.MyApp;
 import com.basic.prevoz.Helper.MyRunnablePar;
 import com.basic.prevoz.Models.Global;
 import com.basic.prevoz.Models.PrevozVM;
@@ -36,6 +40,7 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.basic.prevoz.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -46,10 +51,13 @@ public class PrevoziViewPagerFragment extends Fragment {
 
     private static int SEARCH_BUTTON_START_LOCATION_ID = 1;
     private static int SEARCH_BUTTON_END_LOCATION_ID = 2;
+    private static int SEARCH_BUTTON_DATE_ID = 3;
     private static int SEARCH_BUTTON_ID = 0;
+    private int mYear, mMonth, mDay;
     private LinearLayout mSearchView;
     private Button mSearchStartLocation;
     private Button mSearchEndLocation;
+    private Button mSearchDate;
     private static int PLACE_PICKER_REQUEST = 99;
     private SimpleAdapter mPagerAdapter;
     private View view;
@@ -135,6 +143,7 @@ public class PrevoziViewPagerFragment extends Fragment {
         mSearchView = (LinearLayout) toolbar.findViewById(R.id.search_layout);
         mSearchEndLocation = (Button) mSearchView.findViewById(R.id.searchview_end_location);
         mSearchStartLocation = (Button) mSearchView.findViewById(R.id.searchview_start_location);
+        mSearchDate= (Button) mSearchView.findViewById(R.id.searchview_date);
         doListenOnButtonSearchClick();
 
 
@@ -173,6 +182,7 @@ public class PrevoziViewPagerFragment extends Fragment {
             } else {
                 mSearchView.setVisibility(View.GONE);
                 mSearchStartLocation.setText("");
+                mSearchDate.setText("");
                 mSearchEndLocation.setText("");
                 mPagerAdapter.notifyDataSetChanged();
                 activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -233,6 +243,40 @@ public class PrevoziViewPagerFragment extends Fragment {
                 doCallPlacePicker();
             }
         });
+        mSearchDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SEARCH_BUTTON_ID = SEARCH_BUTTON_DATE_ID;
+                doCallDatePicker();
+            }
+        });
+
+    }
+
+    private void doCallDatePicker() {
+
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+        new DatePickerDialog(getActivity(),
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        mYear = year;
+                        mMonth = monthOfYear;
+                        mDay = dayOfMonth;
+                        mSearchDate.setText((monthOfYear + 1) + "-" +dayOfMonth + "-" +  year);
+                        mPagerAdapter.notifyDataSetChanged();
+                    }
+                }, mYear, mMonth, mDay).show();
+
+
+
 
     }
 
@@ -317,13 +361,13 @@ public class PrevoziViewPagerFragment extends Fragment {
             if(object instanceof PrevoziNudimFragment){
 
                 PrevoziNudimFragment fragment=(PrevoziNudimFragment) object;
-                fragment.doSetSearchQuery(mSearchStartLocation.getText().toString(),mSearchEndLocation.getText().toString());
+                fragment.doSetSearchQuery(mSearchStartLocation.getText().toString(),mSearchEndLocation.getText().toString(),mSearchDate.getText().toString());
 
             }
             if(object instanceof PrevoziTrazimFragment){
 
                 PrevoziTrazimFragment fragment=(PrevoziTrazimFragment) object;
-                fragment.doSetSearchQuery(mSearchStartLocation.getText().toString(),mSearchEndLocation.getText().toString());
+                fragment.doSetSearchQuery(mSearchStartLocation.getText().toString(),mSearchEndLocation.getText().toString(),mSearchDate.getText().toString());
 
 
             }

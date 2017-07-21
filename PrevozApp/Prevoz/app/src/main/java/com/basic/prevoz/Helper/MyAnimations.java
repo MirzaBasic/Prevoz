@@ -91,8 +91,8 @@ public class MyAnimations {
 
         v.setEnabled(true);
         v.animate()
-                .alpha(1.0f).scaleX(1).scaleY(1)
-                .setDuration(230);
+                .alpha(1.0f).scaleX(1).scaleY(1).setDuration(150);
+
 
     }
 
@@ -104,8 +104,8 @@ public class MyAnimations {
 
         v.setEnabled(false);
         v.animate().
-                alpha(0.0f).scaleX(0).scaleY(0)
-                .setDuration(230);
+                alpha(0.0f).scaleX(0).scaleY(0).setDuration(150);
+
 
     }
 }
